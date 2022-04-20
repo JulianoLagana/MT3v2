@@ -1,0 +1,18 @@
+# Hyperparameters to be used by eval.py. Will override any hyperparams defined in the task or the trained model's
+# result folder
+
+n_samples: 10
+
+data_generation:
+    seed: 1
+
+training:
+    batch_size: 1
+
+loss:
+    type: 'gospa'
+    cutoff_distance: 10.0
+    order: 1
+    alpha: 2
+    existence_prob_cutoff: 0.5
+    max_p_for_nll: 0.99

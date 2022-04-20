@@ -1,0 +1,26 @@
+data_generation:
+    seed: 0
+    n_timesteps: 20
+    max_objects:  16
+    n_prediction_lag: 0 # 0 means predicting the last state and n_timesteps means predicting the first state
+    dt: 0.1
+    p_add:        0.15
+    p_remove:     0.05
+    p_meas:       0.95
+    process_noise_variance: 0.2
+    measurement_noise_stds: [0.075, 0.977866322, 0.1]  # from resolution values of realistic model in good region of FOV
+    n_avg_false_measurements : 5
+    n_avg_starting_objects: 2
+    avg_gt_objects: 2.5 # based on 1k samples
+    field_of_view:
+        min_range: 0.5
+        max_range: 15
+        max_range_rate: 30
+        min_theta: -1.3
+        max_theta: 1.3
+    birth_process:
+        mean_pos: [7, 0.01]
+        cov_pos: [[10.0, 0.0], [0.0, 30.0]]
+        mean_vel: [0.0, 0.0]
+        cov_vel: [[3.0, 0.0], [0.0, 3.0]]
+    prediction_target: 'position_and_velocity'
