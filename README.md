@@ -1,6 +1,5 @@
 ## Introduction
-This repository contains the code for the paper "Can Deep Learning be Applied to Model-Based Multi-Object Tracking?
-" (https://arxiv.org/abs/2202.07909). The code for MT3v2 was developed as joint effort by Juliano Pinto, Georg Hess, and William Ljungbergh, and was partially based on the code available at the repositories for [DETR](https://github.com/facebookresearch/detr) and [Deformable-DETR](https://github.com/fundamentalvision/Deformable-DETR).
+This repository contains the code for the paper "Can Deep Learning be Applied to Model-Based Multi-Object Tracking?" (https://arxiv.org/abs/2202.07909). The code for MT3v2 was developed as joint effort by Juliano Pinto, Georg Hess, and William Ljungbergh, and was partially based on the code available at the repositories for [DETR](https://github.com/facebookresearch/detr) and [Deformable-DETR](https://github.com/fundamentalvision/Deformable-DETR).
 
 
 
