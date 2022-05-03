@@ -28,3 +28,8 @@ Training hyperparameters such as batch size, learning rate, checkpoint interval,
 ## Evaluating experiments
 
 You can plot metrics of interest using the `util/plot_results.py` script, during and after training. 
+
+
+## Trained models
+
+Trained models for each of the 4 tasks described in the paper can be found [here](https://chalmersuniversity.box.com/s/kuf5wpjy8ufemy8ynpak7rrfh9p2exft).
