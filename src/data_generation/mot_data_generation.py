@@ -360,6 +360,7 @@ def get_position_and_velocity_from_state(state):
 
 def generate_true_measurements(objects_to_measure, measurement_noises, t, field_of_view):
     true_measurements = []
+    unique_obj_ids = []
 
     for i, obj in enumerate(objects_to_measure):
         m = get_radar_measurement(obj)
@@ -367,9 +368,9 @@ def generate_true_measurements(objects_to_measure, measurement_noises, t, field_
 
         if measurement_with_time[:-1] in field_of_view:
             true_measurements.append(measurement_with_time)
+            unique_obj_ids.append(obj.id)
 
     true_measurements = np.array(true_measurements)
-    unique_obj_ids_true = [obj.id for obj in objects_to_measure]
 
-    return true_measurements, unique_obj_ids_true
+    return true_measurements, unique_obj_ids
 
