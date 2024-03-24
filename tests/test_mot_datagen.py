@@ -4,11 +4,10 @@ import os
 
 import numpy as np
 
-# Add src/ and src/modules to path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../modules')))
+# Add src/ to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-from src.data_generation.mot_data_generation import (
+from data_generation.mot_data_generation import (
     generate_true_measurements,
     Object,
     FieldOfView,

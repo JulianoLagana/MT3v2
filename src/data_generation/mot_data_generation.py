@@ -1,6 +1,6 @@
 import numpy as np
 import itertools
-from src.modules.realistic_radar_model.realistic_meas_model import RealisticMeasModel
+from modules.realistic_radar_model.realistic_meas_model import RealisticMeasModel
 
 
 def get_radar_measurement(obj):
