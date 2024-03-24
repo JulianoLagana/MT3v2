@@ -1,0 +1,32 @@
+gtool.poetry]
+name = "transformers-for-mot"
+version = "0.1.0"
+description = ""
+authors = ["Juliano Laganá <juliano@modulai.io>"]
+readme = "README.md"
+packages = [{include = "transformers_for_mot"}]
+
+[tool.poetry.dependencies]
+python = "~3.7"
+numpy = "1.19.2"
+jupyter = "^1.0.0"
+matplotlib = "3.3.2"
+scikit-learn = "0.23.2"
+scipy = "1.5.2"
+pandas = "1.1.5"
+seaborn = "0.11.0"
+nltk = "3.5"
+h5py = "2.10.0"
+spacy = "2.3.2"
+Unidecode = "1.1.1"
+torch = "1.11.0"
+torchvision = "0.12.0"
+tk = "^0.1.0"
+PyYAML = "5.3.1"
+ray = "1.1.0"
+rich = "^13.3.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -250,7 +250,6 @@ class MotDataGenerator:
         measured_objects = [obj for obj, is_measured in zip(self.objects, is_measured) if is_measured]
 
         # Generate the true measurements' noise
-        true_measurements = []
         if self.use_realistic_meas_noise:
             positions = np.array([get_radar_measurement(obj) for obj in measured_objects])
             measurement_covs = self.realistic_meas_computer.compute_covariance(positions)
@@ -259,15 +258,12 @@ class MotDataGenerator:
         else:
             measurement_noises = self.rng.normal(0, self.measurement_noise_stds, size=(len(measured_objects), 3))
 
-        # Generate true measurements (making sure they're inside the FOV)
-        for i, obj in enumerate(measured_objects):
-            m = get_radar_measurement(obj)
-            measurement_with_time = np.append(m + measurement_noises[i, :], self.t)
-            if measurement_with_time[:-1] in self.field_of_view:
-                true_measurements.append(measurement_with_time)
-        true_measurements = np.array(true_measurements)
-
-        unique_obj_ids_true = [obj.id for obj in measured_objects]
+        true_measurements, unique_obj_ids_true = generate_true_measurements(
+            measured_objects,
+            measurement_noises,
+            self.t,
+            self.field_of_view
+        )
 
         # Generate false measurements (uniformly distributed over measurement FOV)
         n_false_measurements = self.rng.poisson(self.n_average_false_measurements)
@@ -360,3 +356,21 @@ class MotDataGenerator:
 
 def get_position_and_velocity_from_state(state):
     return state[:4].copy()
+
+
+def generate_true_measurements(objects_to_measure, measurement_noises, t, field_of_view):
+    true_measurements = []
+    unique_obj_ids = []
+
+    for i, obj in enumerate(objects_to_measure):
+        m = get_radar_measurement(obj)
+        measurement_with_time = np.append(m + measurement_noises[i, :], t)
+
+        if measurement_with_time[:-1] in field_of_view:
+            true_measurements.append(measurement_with_time)
+            unique_obj_ids.append(obj.id)
+
+    true_measurements = np.array(true_measurements)
+
+    return true_measurements, unique_obj_ids
+
