@@ -55,8 +55,7 @@ class TestMotDataGenerator(unittest.TestCase):
         )
 
         self.assertEqual(len(true_measurements), 2)
-        self.assertEqual(obj_ids[0], obj_id1)
-        self.assertEqual(obj_ids[1], obj_id2)
+        self.assertListEqual(obj_ids, [obj_id1, obj_id2])
 
     def test_measurements_from_one_object_outside_fov(self):
         t = 1
@@ -99,7 +98,7 @@ class TestMotDataGenerator(unittest.TestCase):
         )
 
         self.assertEqual(len(true_measurements), 1)
-        self.assertEqual(len(obj_ids), 1)
+        self.assertListEqual(obj_ids, [obj_id1])
 
 
 if __name__ == '__main__':
